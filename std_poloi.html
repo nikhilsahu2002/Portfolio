@@ -1,698 +1,1001 @@
 <!DOCTYPE html>
 <html lang="en">
-  <head>
-    <meta charset="UTF-8" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>Your Student Portfolio</title>
 
-    <!-- Bootstrap CSS -->
-    <link
-      href="https://cdn.jsdelivr.net/npm/bootstrap@5.1.0/dist/css/bootstrap.min.css"
-      rel="stylesheet" />
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Your Student Portfolio</title>
 
-    <style>
-      body {
-        font-family: "Arial", sans-serif;
-        background-color: #f8f8f8;
-        margin: 0;
-        padding: 0;
-        overflow-x: hidden;
-      }
+  <!-- Bootstrap CSS -->
+  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.1.0/dist/css/bootstrap.min.css" rel="stylesheet" />
+  <!-- Add these lines to the head section of your HTML -->
+  <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css" />
+  <script src="https://code.jquery.com/jquery-3.5.1.slim.min.js"></script>
+  <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.10.2/dist/umd/popper.min.js"></script>
+  <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
 
-      header {
-        /* background: linear-gradient(to right, #00f298, #07f7f7); */
-        margin-top: -100px;
-        /* background-color: #333; */
-        color: #fff;
-        height: 110px;
-        /* padding: 15px 0; */
-        text-align: center;
-        position: fixed;
-        width: 100%;
-        z-index: 1000;
-      }
+  <style>
+    body {
+      font-family: "Arial", sans-serif;
+      background-color: #f8f8f8;
+      margin: 0;
+      padding: 0;
+      overflow-x: hidden;
+    }
 
-      section {
-        padding: 1px;
-        text-align: center;
-        /* Adjust this value to match the height of your navbar */
-      }
+    header {
+      /* background: linear-gradient(to right, #00f298, #07f7f7); */
+      margin-top: -100px;
+      /* background-color: #333; */
+      color: #fff;
+      height: 110px;
+      /* padding: 15px 0; */
+      text-align: center;
+      position: fixed;
+      width: 100%;
+      z-index: 1000;
+    }
 
-      h2 {
-        color: #333;
-      }
+    section {
+      padding: 1px;
+      text-align: center;
+      /* Adjust this value to match the height of your navbar */
+    }
 
-      nav {
-        color: black; /* Add this line to set the text color to black */
-        background: #22252c;
-        padding: 10px 0;
-        transition: top 0.3s;
-        position: sticky;
-        top: 0;
-        width: 100%;
-        z-index: 1000;
-      }
+    h2 {
+      color: #333;
+    }
 
-      nav a {
-        text-decoration: none;
-        margin: 0 20px;
-        cursor: pointer;
-        transition: color 0.3s;
-      }
+    nav {
+      color: black;
+      /* Add this line to set the text color to black */
+      background: #22252c;
+      padding: 10px 0;
+      transition: top 0.3s;
+      position: sticky;
+      top: 0;
+      width: 100%;
+      z-index: 1000;
+    }
 
-      nav a:hover {
-        color: #58a6ff;
-      }
+    nav a {
+      text-decoration: none;
+      margin: 0 20px;
+      cursor: pointer;
+      transition: color 0.3s;
+    }
 
-      #about {
-        text-align: start;
-        text-transform: capitalize;
-        font-family: "Segoe UI", Tahoma, Geneva, Verdana, sans-serif;
-        font-weight: 200;
-        color: white;
-      }
-      #about h2 {
-        background: linear-gradient(to right, #00f298, #07f7f7);
-        -webkit-background-clip: text;
-        color: transparent;
-        font-size: 45px;
-        font-weight: 700;
-        text-transform: uppercase;
-      }
-      header h3 {
-        color: black;
-        font-weight: 700;
-        margin-left: 100px;
-      }
-      header h1 {
-        margin-right: 100px;
-      }
-      #about h4 {
-        background: linear-gradient(to right, #00f298, #07f7f7);
-        -webkit-background-clip: text;
-        color: transparent;
-        font-weight: 600;
-      }
-      #about a {
-        text-decoration: none;
-        color: white;
-        font-weight: 600;
-        padding: 10px;
-        background-color: #00f298;
-        box-shadow: 0 0 20px rgba(0, 242, 152, 0.8);
-      }
-      .Download {
-        margin-top: 30px;
-        text-align: center;
-        justify-content: center;
-      }
-      #education h2 {
-        background: linear-gradient(to right, #00f298, #07f7f7);
-        -webkit-background-clip: text;
-        color: transparent;
-        font-size: 45px;
-        font-weight: 700;
-        text-transform: uppercase;
-      }
-      #education {
-        background-color: #313741;
-      }
+    nav a:hover {
+      color: #58a6ff;
+    }
 
-      .card {
-        background-color: #22252c;
-      }
-      .card-title {
-        color: #07f7ef;
-        text-transform: uppercase;
-        font-weight: 800;
-      }
-      .card-subtitle {
-        color: #ffffff;
-      }
-      .card-text {
-        color: wheat;
-      }
-      #projects {
-        background-color: #22252c;
-      }
+    #about {
+      text-align: start;
+      text-transform: capitalize;
+      font-family: "Segoe UI", Tahoma, Geneva, Verdana, sans-serif;
+      font-weight: 200;
+      color: white;
+    }
 
-      #projects h2 {
-        background: linear-gradient(to right, #00f298, #07f7f7);
-        -webkit-background-clip: text;
-        color: transparent;
-        font-size: 45px;
-        font-weight: 700;
-        text-transform: uppercase;
-      }
-      #Progress h2 {
-        background: linear-gradient(to right, #00f298, #07f7f7);
-        -webkit-background-clip: text;
-        color: transparent;
-        font-size: 45px;
-        font-weight: 700;
-        text-transform: uppercase;
-      }
-      #Progress {
-        background-color: #313741;
-      }
-      #Progress h1 {
-        color: white;
-        font-size: x-large;
-        font-weight: 200;
-        align-items: start;
-        display: flex;
-      }
-      .progress-bar {
-        background: linear-gradient(to right, #00f298, #07f7f7);
-        color: black;
-      }
-    </style>
-  </head>
+    #about h2 {
+      background: linear-gradient(to right, #00f298, #07f7f7);
+      -webkit-background-clip: text;
+      color: transparent;
+      font-size: 45px;
+      font-weight: 700;
+      text-transform: uppercase;
+    }
 
-  <body>
-    <header>
-      <h1>Nikhil Sahu</h1>
-      <h3 style="margin-top: -2px">Full Stack Developer</h3>
-      <nav class="navbar navbar-expand-lg navbar-dark">
-        <div class="container">
-          <button
-            class="navbar-toggler"
-            type="button"
-            data-toggle="collapse"
-            data-target="#navbarNav"
-            aria-controls="navbarNav"
-            aria-expanded="true"
-            aria-label="Toggle navigation"></button>
-          <div class="collapse navbar-collapse" id="navbarNav">
-            <ul class="navbar-nav">
-              <li class="nav-item">
-                <a class="nav-link" href="#about">About Me</a>
-              </li>
-              <li class="nav-item">
-                <a class="nav-link" href="#education">Education</a>
-              </li>
-              <li class="nav-item">
-                <a class="nav-link" href="#projects">Projects</a>
-              </li>
-              <li class="nav-item">
-                <a class="nav-link" href="#Progress">Progress</a>
-              </li>
-              <!-- Add more sections as needed -->
-            </ul>
+    header h3 {
+      color: black;
+      font-weight: 700;
+      margin-left: 100px;
+    }
+
+    header h1 {
+      margin-right: 100px;
+    }
+
+    #about h4 {
+      background: linear-gradient(to right, #00f298, #07f7f7);
+      -webkit-background-clip: text;
+      color: transparent;
+      font-weight: 600;
+    }
+
+    #about a {
+      text-decoration: none;
+      color: white;
+      font-weight: 600;
+      padding: 10px;
+      background-color: #00f298;
+      box-shadow: 0 0 20px rgba(0, 242, 152, 0.8);
+    }
+
+    .Download {
+      margin-top: 30px;
+      text-align: center;
+      justify-content: center;
+    }
+
+    #education h2 {
+      background: linear-gradient(to right, #00f298, #07f7f7);
+      -webkit-background-clip: text;
+      color: transparent;
+      font-size: 45px;
+      font-weight: 700;
+      text-transform: uppercase;
+    }
+
+    #education {
+      background-color: #22252c;
+    }
+
+    .card {
+      background-color: #2f4569;
+    }
+
+    .card-title {
+      color: #07f7ef;
+      text-transform: uppercase;
+      font-weight: 800;
+    }
+
+    .card-subtitle {
+      color: #ffffff;
+    }
+
+    .card-text {
+      color: white;
+    }
+
+    #projects {
+      background-color: #313741;
+      padding-bottom: 40px;
+    }
+
+    #projects h2 {
+      background: linear-gradient(to right, #00f298, #07f7f7);
+      -webkit-background-clip: text;
+      color: transparent;
+      font-size: 45px;
+      font-weight: 700;
+      text-transform: uppercase;
+    }
+
+    #Progress h2 {
+      background: linear-gradient(to right, #00f298, #07f7f7);
+      -webkit-background-clip: text;
+      color: transparent;
+      font-size: 45px;
+      font-weight: 700;
+      text-transform: uppercase;
+    }
+
+    #Progress {
+      background-color: #313741;
+    }
+
+    #Progress h1 {
+      color: white;
+      font-size: x-large;
+      font-weight: 200;
+      align-items: start;
+      display: flex;
+    }
+
+    .progress-bar {
+      background: linear-gradient(to right, #00f298, #07f7f7);
+      color: black;
+    }
+
+    #Experience {
+      background-color: #313741;
+    }
+
+    #Experience h2 {
+      background: linear-gradient(to right, #00f298, #07f7f7);
+      -webkit-background-clip: text;
+      color: transparent;
+      font-size: 45px;
+      font-weight: 700;
+      text-transform: uppercase;
+    }
+
+    ol {
+      color: white;
+      align-items: start;
+    }
+    #Certificate{
+      background-color: #22252c;
+    }
+    #Certificate h2 {
+      background: linear-gradient(to right, #00f298, #07f7f7);
+      -webkit-background-clip: text;
+      color: transparent;
+      font-size: 45px;
+      font-weight: 700;
+      text-transform: uppercase;
+    }
+    #workshop{
+      background-color: #22252c;
+    }
+    #workshop h2 {
+      background: linear-gradient(to right, #00f298, #07f7f7);
+      -webkit-background-clip: text;
+      color: transparent;
+      font-size: 45px;
+      font-weight: 700;
+      text-transform: uppercase;
+    }
+   
+  </style>
+</head>
+
+<body>
+  <header>
+    <h1>Nikhil Sahu</h1>
+    <h3 style="margin-top: -2px">Full Stack Developer</h3>
+    <nav class="navbar navbar-expand-lg navbar-dark">
+      <div class="container">
+        <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNav"
+          aria-controls="navbarNav" aria-expanded="true" aria-label="Toggle navigation"></button>
+        <div class="collapse navbar-collapse" id="navbarNav">
+          <ul class="navbar-nav">
+            <li class="nav-item">
+              <a class="nav-link" href="#about">About Me</a>
+            </li>
+            <li class="nav-item">
+              <a class="nav-link" href="#education">Education</a>
+            </li>
+            <li class="nav-item">
+              <a class="nav-link" href="#projects">Projects</a>
+            </li>
+            <li class="nav-item">
+              <a class="nav-link" href="#Progress">Progress</a>
+            </li>
+            <li class="nav-item">
+              <a class="nav-link" href="#Experience">Experience</a>
+            </li>
+            <li class="nav-item">
+              <a class="nav-link" href="#Certificate">Certificate</a>
+            </li>
+            <li class="nav-item">
+              <a class="nav-link" href="#workshop">Workshop</a>
+            </li>
+            <!-- Add more sections as needed -->
+          </ul>
+        </div>
+      </div>
+    </nav>
+  </header>
+
+  <section id="about" style="background-color: #22252c">
+    <div class="container mt-5 pt-4">
+      <div class="row">
+        <!-- Left part for the image -->
+        <div class="col-md-4">
+          <img src="https://comeout.netlify.app/demo/default/img/profile-pic.jpg" alt="Your Image" class="img-fluid" />
+          <div class="Download" onclick="downloadResume()"><a href="">Download Resume</a></div>
+        </div>
+
+        <!-- Right part for the title, description, and personal details -->
+        <div class="col-md-8">
+          <h2>About Me</h2>
+          <p>
+            Hello! I’m Nikhil Sahu. Web Developer with over 3 month of
+            experience. Experienced with all stages of the development cycle
+            for dynamic web projects. Having an in-depth knowledge including
+            advanced HTML5, CSS3, JavaScript, jQuery, Angular JS. Strong
+            background in management and leadership.
+          </p>
+          <div style="
+                display: flex;
+                gap: 10px;
+                align-items: center;
+                text-transform: capitalize;
+              ">
+            <h4 style="text-transform: uppercase">Name:</h4>
+            <h4 style="color: white; text-transform: capitalize">
+              Nikhil Sahu
+            </h4>
+          </div>
+          <div style="
+                display: flex;
+                gap: 10px;
+                align-items: center;
+                text-transform: capitalize;
+              ">
+            <h4 style="text-transform: uppercase">Date Of Birth:</h4>
+            <h4 style="color: white; text-transform: capitalize">
+              26-12-2002
+            </h4>
+          </div>
+          <div style="
+                display: flex;
+                gap: 10px;
+                align-items: center;
+                text-transform: capitalize;
+              ">
+            <h4 style="text-transform: uppercase">Email:</h4>
+            <h4 style="color: white; text-transform: capitalize">
+              nikhilmca.uU@gmail.com
+            </h4>
+          </div>
+          <div style="
+                display: flex;
+                gap: 10px;
+                align-items: center;
+                text-transform: capitalize;
+              ">
+            <h4 style="text-transform: uppercase">Phone:</h4>
+            <h4 style="color: white; text-transform: capitalize">
+              9112596500
+            </h4>
+          </div>
+          <div style="
+                display: flex;
+                gap: 10px;
+                align-items: center;
+                text-transform: capitalize;
+              " class="pb-5">
+            <h4 style="text-transform: uppercase">Address:</h4>
+            <h4 style="color: white; text-transform: capitalize">
+              allahabad
+            </h4>
           </div>
         </div>
-      </nav>
-    </header>
-
-    <section id="about" style="background-color: #22252c">
-      <div class="container mt-5 pt-4">
-        <div class="row">
-          <!-- Left part for the image -->
-          <div class="col-md-4">
-            <img
-              src="https://comeout.netlify.app/demo/default/img/profile-pic.jpg"
-              alt="Your Image"
-              class="img-fluid" />
-            <div class="Download"><a href="">Download Resume</a></div>
-          </div>
-
-          <!-- Right part for the title, description, and personal details -->
-          <div class="col-md-8">
-            <h2>About Me</h2>
-            <p>
-              Hello! I’m Oliver Queen. Web Developer with over 8 years of
-              experience. Experienced with all stages of the development cycle
-              for dynamic web projects. Having an in-depth knowledge including
-              advanced HTML5, CSS3, JavaScript, jQuery, Angular JS. Strong
-              background in management and leadership.
-            </p>
-            <div
-              style="
-                display: flex;
-                gap: 10px;
-                align-items: center;
-                text-transform: capitalize;
-              ">
-              <h4 style="text-transform: uppercase">Name:</h4>
-              <h4 style="color: white; text-transform: capitalize">
-                Nikhil Sahu
-              </h4>
-            </div>
-            <div
-              style="
-                display: flex;
-                gap: 10px;
-                align-items: center;
-                text-transform: capitalize;
-              ">
-              <h4 style="text-transform: uppercase">Date Of Birth:</h4>
-              <h4 style="color: white; text-transform: capitalize">
-                26-12-2002
-              </h4>
-            </div>
-            <div
-              style="
-                display: flex;
-                gap: 10px;
-                align-items: center;
-                text-transform: capitalize;
-              ">
-              <h4 style="text-transform: uppercase">Email:</h4>
-              <h4 style="color: white; text-transform: capitalize">
-                nikhilmca.uU@gmail.com
-              </h4>
-            </div>
-            <div
-              style="
-                display: flex;
-                gap: 10px;
-                align-items: center;
-                text-transform: capitalize;
-              ">
-              <h4 style="text-transform: uppercase">Phone:</h4>
-              <h4 style="color: white; text-transform: capitalize">
-                9112596500
-              </h4>
-            </div>
-            <div
-              style="
-                display: flex;
-                gap: 10px;
-                align-items: center;
-                text-transform: capitalize;
-              "
-              class="pb-5">
-              <h4 style="text-transform: uppercase">Address:</h4>
-              <h4 style="color: white; text-transform: capitalize">
-                allahabad
-              </h4>
-            </div>
-          </div>
-        </div>
-        <div class="row">
-          <div class="col mt-5">
-            <h4
-              style="
+      </div>
+      <div class="row">
+        <div class="col mt-5">
+          <h4 style="
                 font-weight: 700;
                 font-size: 40px;
                 text-align: center;
                 text-transform: uppercase;
               ">
-              My Programming Skill set
-            </h4>
-            <div
-              style="
+            My Programming Skill set
+          </h4>
+          <div style="
                 display: flex;
                 gap: 20px;
                 padding: 20px;
                 justify-content: center;
               ">
-              <img
-                width="48"
-                height="48"
-                src="https://img.icons8.com/stickers/100/machine-learning.png"
-                alt="machine-learning" />
-              <img
-                width="48"
-                height="48"
-                src="https://img.icons8.com/nolan/64/visual-studio-code-2019.png"
-                alt="visual-studio-code-2019" />
-              <img
-                width="48"
-                height="48"
-                src="https://img.icons8.com/fluency/48/python.png"
-                alt="python" />
-              <img
-                width="48"
-                height="48"
-                src="https://img.icons8.com/nolan/64/django.png"
-                alt="django" />
-              <img
-                width="48"
-                height="48"
-                src="https://img.icons8.com/color/48/java-coffee-cup-logo--v1.png"
-                alt="java-coffee-cup-logo--v1" />
-              <img
-                width="48"
-                height="48"
-                src="https://img.icons8.com/clouds/100/react.png"
-                alt="react" />
-              <img
-                width="48"
-                height="48"
-                src="https://img.icons8.com/fluency/48/node-js.png"
-                alt="node-js" />
-            </div>
+            <img width="48" height="48" src="https://img.icons8.com/stickers/100/machine-learning.png"
+              alt="machine-learning" />
+            <img width="48" height="48" src="https://img.icons8.com/nolan/64/visual-studio-code-2019.png"
+              alt="visual-studio-code-2019" />
+            <img width="48" height="48" src="https://img.icons8.com/fluency/48/python.png" alt="python" />
+            <img width="48" height="48" src="https://img.icons8.com/nolan/64/django.png" alt="django" />
+            <img width="48" height="48" src="https://img.icons8.com/color/48/java-coffee-cup-logo--v1.png"
+              alt="java-coffee-cup-logo--v1" />
+            <img width="48" height="48" src="https://img.icons8.com/clouds/100/react.png" alt="react" />
+            <img width="48" height="48" src="https://img.icons8.com/fluency/48/node-js.png" alt="node-js" />
           </div>
         </div>
       </div>
-    </section>
+    </div>
+  </section>
 
-    <section id="education">
-      <div class="container mt-5 mb-5">
-        <h2>Education</h2>
-        <div class="row justify-content-center align-items-center g-2">
-          <div class="col">
-            <div class="card" style="width: 18rem">
-              <div class="card-body">
-                <h5 class="card-title">Bachalor Digree</h5>
-                <h6 class="card-subtitle mb-2">
-                  Jan 2019-may 2022 | University
-                </h6>
-                <p class="card-text">
-                  Some quick example text to build on the card title and make up
-                  the bulk of the card's content.
-                </p>
+  <section id="projects">
+    <div class="container mt-5">
+      <h2 style="padding-bottom: 10px">Projects</h2>
+
+      <div class="row">
+     
+        <div class="col" >
+          <a class="carousel-control-prev" href="#imageCarousel" role="button" data-slide="prev">
+            <span  class="carousel-control-prev-icon" aria-hidden="true"></span>
+            <span class="sr-only">Previous</span>
+          </a>
+          <div class="card-group">
+            <div id="imageCarousel" class="carousel slide" data-ride="carousel">
+              <div class="carousel-inner">
+                <div class="card-group carousel-item active" ">
+                    <div class=" d-flex justify-content-between">
+                  <div class="card mr-3">
+                    <img
+                      src="Screenshot (5).png"
+                      class="card-img-top"
+                      alt="https://assets-global.website-files.com/624af442a8151d5a2ef5644c/6411992ee2c5cc606f0d56fb_hero%20image.webp" />
+                    <div class="card-body">
+                      <h5 class="card-title">Monkey Chat </h5>
+                      <p class="card-text">
+                        During my React.js internship at Sync Inters, I've crafted a dynamic real-time chat application using React.js and Firebase. 🚀💬
+                      </p>
+                      <p class="card-text">Features: <ul style="color: white;">
+                        <li>Seamless real-time messaging</li>
+                        <li>Message status indicators for enhanced communication</li>
+                        <li>User-friendly interface for an immersive chat experience</li>
+                      </ul></p>
+
+                    </div>
+                    <div class="card-footer">
+                      <small class="text-muted">Last updated 3 mins ago</small>
+                    </div>
+                  </div>
+                  <div class="card mr-3">
+                    <img
+                      src="Screenshot (36).png"
+                      class="card-img-top"
+                      alt="https://assets-global.website-files.com/624af442a8151d5a2ef5644c/6411992ee2c5cc606f0d56fb_hero%20image.webp" />
+                    <div class="card-body">
+                      <h5 class="card-title">Pdf Question Answering</h5>
+                      <p class="card-text">
+                        Over the recent months, I undertook a compelling project—a PDF-based Question and Answer AI system, leveraging the capabilities of ChatGPT. 🤖📚
+                      </p>
+                      <p class="card-text">🔍 Project Features: <ul style="color: white;">
+                        <li>AI-Driven Q&A: The system employs ChatGPT to intelligently answer questions extracted from a PDF document.</li>
+                        <li>Natural Language Processing: Utilizes advanced NLP techniques to comprehend and respond contextually.</li>
+                        <li>Seamless PDF Integration: Enables the system to dynamically extract information from PDFs for accurate responses.</li>
+                        <li>User-Friendly Interface: Designed with simplicity in mind, making it accessible and intuitive for users.</li>
+                      </ul></p>
+                    </div>
+                    <div class="card-footer">
+                      <small class="text-muted">Last updated 3 mins ago</small>
+                    </div>
+                  </div>
+                  <div class="card">
+                    <img
+                      src="https://assets-global.website-files.com/624af442a8151d5a2ef5644c/6411992ee2c5cc606f0d56fb_hero%20image.webp"
+                      class="card-img-top"
+                      alt="https://assets-global.website-files.com/624af442a8151d5a2ef5644c/6411992ee2c5cc606f0d56fb_hero%20image.webp" />
+                    <div class="card-body">
+                      <h5 class="card-title">Card title</h5>
+                      <p class="card-text">
+                        This is a wider card with supporting text below as a
+                        natural lead-in to additional content. This content
+                        is a little bit longer.
+                      </p>
+                    </div>
+                    <div class="card-footer">
+                      <small class="text-muted">Last updated 3 mins ago</small>
+                    </div>
+                  </div>
+                </div>
               </div>
-            </div>
-          </div>
-          <div class="col">
-            <div class="card" style="width: 18rem">
-              <div class="card-body">
-                <h5 class="card-title">Card title</h5>
-                <h6 class="card-subtitle mb-2">Card subtitle</h6>
-                <p class="card-text">
-                  Some quick example text to build on the card title and make up
-                  the bulk of the card's content.
-                </p>
+              <div class="card-group carousel-item">
+                <div class="d-flex justify-content-between">
+                  <div class="card mr-3">
+                    <img
+                      src="https://assets-global.website-files.com/624af442a8151d5a2ef5644c/6411992ee2c5cc606f0d56fb_hero%20image.webp"
+                      class="card-img-top"
+                      alt="https://assets-global.website-files.com/624af442a8151d5a2ef5644c/6411992ee2c5cc606f0d56fb_hero%20image.webp" />
+                    <div class="card-body">
+                      <h5 class="card-title">Card title</h5>
+                      <p class="card-text">
+                        This is a wider card with supporting text below as a
+                        natural lead-in to additional content. This content
+                        is a little bit longer.
+                      </p>
+                    </div>
+                    <div class="card-footer">
+                      <small class="text-muted">Last updated 3 mins ago</small>
+                    </div>
+                  </div>
+                  <div class="card mr-3">
+                    <img
+                      src="https://assets-global.website-files.com/624af442a8151d5a2ef5644c/6411992ee2c5cc606f0d56fb_hero%20image.webp"
+                      class="card-img-top"
+                      alt="https://assets-global.website-files.com/624af442a8151d5a2ef5644c/6411992ee2c5cc606f0d56fb_hero%20image.webp" />
+                    <div class="card-body">
+                      <h5 class="card-title">Card title</h5>
+                      <p class="card-text">
+                        This is a wider card with supporting text below as a
+                        natural lead-in to additional content. This content
+                        is a little bit longer.
+                      </p>
+                    </div>
+                    <div class="card-footer">
+                      <small class="text-muted">Last updated 3 mins ago</small>
+                    </div>
+                  </div>
+                  <div class="card">
+                    <img
+                      src="https://assets-global.website-files.com/624af442a8151d5a2ef5644c/6411992ee2c5cc606f0d56fb_hero%20image.webp"
+                      class="card-img-top"
+                      alt="https://assets-global.website-files.com/624af442a8151d5a2ef5644c/6411992ee2c5cc606f0d56fb_hero%20image.webp" />
+                    <div class="card-body">
+                      <h5 class="card-title">Card title</h5>
+                      <p class="card-text">
+                        This is a wider card with supporting text below as a
+                        natural lead-in to additional content. This content
+                        is a little bit longer.
+                      </p>
+                    </div>
+                    <div class="card-footer">
+                      <small class="text-muted">Last updated 3 mins ago</small>
+                    </div>
+                  </div>
+                </div>
               </div>
-            </div>
-          </div>
-          <div class="col">
-            <div class="card" style="width: 18rem">
-              <div class="card-body">
-                <h5 class="card-title">Card title</h5>
-                <h6 class="card-subtitle mb-2">Card subtitle</h6>
-                <p class="card-text">
-                  Some quick example text to build on the card title and make up
-                  the bulk of the card's content.
-                </p>
+              <div class="card-group carousel-item">
+                <div class="d-flex justify-content-between">
+                  <div class="card mr-3">
+                    <img
+                      src="https://assets-global.website-files.com/624af442a8151d5a2ef5644c/6411992ee2c5cc606f0d56fb_hero%20image.webp"
+                      class="card-img-top"
+                      alt="https://assets-global.website-files.com/624af442a8151d5a2ef5644c/6411992ee2c5cc606f0d56fb_hero%20image.webp" />
+                    <div class="card-body">
+                      <h5 class="card-title">Card title</h5>
+                      <p class="card-text">
+                        This is a wider card with supporting text below as a
+                        natural lead-in to additional content. This content
+                        is a little bit longer.
+                      </p>
+                    </div>
+                    <div class="card-footer">
+                      <small class="text-muted">Last updated 3 mins ago</small>
+                    </div>
+                  </div>
+                  <div class="card mr-3">
+                    <img
+                      src="https://assets-global.website-files.com/624af442a8151d5a2ef5644c/6411992ee2c5cc606f0d56fb_hero%20image.webp"
+                      class="card-img-top"
+                      alt="https://assets-global.website-files.com/624af442a8151d5a2ef5644c/6411992ee2c5cc606f0d56fb_hero%20image.webp" />
+                    <div class="card-body">
+                      <h5 class="card-title">Card title</h5>
+                      <p class="card-text">
+                        This is a wider card with supporting text below as a
+                        natural lead-in to additional content. This content
+                        is a little bit longer.
+                      </p>
+                    </div>
+                    <div class="card-footer">
+                      <small class="text-muted">Last updated 3 mins ago</small>
+                    </div>
+                  </div>
+                  <div class="card">
+                    <img
+                      src="https://assets-global.website-files.com/624af442a8151d5a2ef5644c/6411992ee2c5cc606f0d56fb_hero%20image.webp"
+                      class="card-img-top"
+                      alt="https://assets-global.website-files.com/624af442a8151d5a2ef5644c/6411992ee2c5cc606f0d56fb_hero%20image.webp" />
+                    <div class="card-body">
+                      <h5 class="card-title">Card title</h5>
+                      <p class="card-text">
+                        This is a wider card with supporting text below as a
+                        natural lead-in to additional content. This content
+                        is a little bit longer.
+                      </p>
+                    </div>
+                    <div class="card-footer">
+                      <small class="text-muted">Last updated 3 mins ago</small>
+                    </div>
+                  </div>
+                </div>
               </div>
             </div>
           </div>
         </div>
+        <a class="carousel-control-next" href="#imageCarousel" role="button" data-slide="next">
+          <span class="carousel-control-next-icon" aria-hidden="true"></span>
+          <span class="sr-only">Next</span>
+        </a>
       </div>
-    </section>
+    </div>
+    </div>
+  </section>
 
-    <section id="projects">
-      <div class="container mt-5">
-        <h2>Projects</h2>
-        <a
-          href=""
-          style="
-            justify-content: end;
-            display: flex;
-            text-decoration: none;
-            color: black;
-            padding: 5px;
-          "
-          ><img
-            width="30"
-            height="30"
-            src="https://img.icons8.com/ios-glyphs/30/arrow.png"
-            alt="arrow"
-        /></a>
-        <div class="card-group">
-          <div class="card">
-            <img
-              src="https://assets-global.website-files.com/624af442a8151d5a2ef5644c/6411992ee2c5cc606f0d56fb_hero%20image.webp"
-              class="card-img-top"
-              alt="https://assets-global.website-files.com/624af442a8151d5a2ef5644c/6411992ee2c5cc606f0d56fb_hero%20image.webp" />
+  <section id="workshop">
+    <div class="container mt-5 mb-5">
+      <h2>WorkShop's</h2>
+      <div class="card-group">
+        <div class="card">
+          <img src="data:image/png;base64,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" class="card-img-top" alt="...">
+          <div class="card-body">
+            <h5 class="card-title">Power Bi 3 Days WorkShop</h5>
+            <p class="card-text">During the workshop, I had the opportunity to delve into the world of data analysis and explore the immense potential of Power BI and Pandas. Through interactive sessions and hands-on exercises, I gained valuable insights into leveraging Power BI's visualization capabilities to effectively communicate data-driven insights. Additionally, I acquired practical skills in using the powerful Pandas library in Python for data manipulation, transformation, and analysis.</p>
+            <p class="card-text"><small class="text-muted">Last updated 3 mins ago</small></p>
+          </div>
+        </div>
+        <div class="card">
+          <img src="data:image/jpeg;base64,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" class="card-img-top" alt="...">
+          <div class="card-body">
+            <h5 class="card-title">Java WorkShop</h5>
+            <p class="card-text">During the workshop, I delved into the fundamentals of the Java programming language, gaining a comprehensive understanding of its intricacies. Additionally, I immersed myself in the principles of Object-Oriented Programming (OOP), gaining invaluable insights into this conceptual framework. The practical component of the workshop provided me with hands-on experience, allowing me to apply my knowledge to real-life applications.</p>
+            <p class="card-text"><small class="text-muted">Last updated 3 mins ago</small></p>
+          </div>
+        </div>
+        <div class="card">
+          <img src="data:image/jpeg;base64,/9j/4AAQSkZJRgABAQAAAQABAAD/2wCEAAoHCBUUFRgVFRUYGBgVGBEYEhgYGRgYGBgYGBgZGRgYGBgcIS4lHB4rIRgYJjgmKy8xNTU1GiQ7QDs0Py40NTEBDAwMEA8QHxISHjQjJSs0NDQ0NDQ0NDQ0NDQ0NjQ0NDQ0NDQ0NDQ0NDQ0NDQ0NDQ0NDQ0NDQ0NDQ0NDQ0NDQ0NP/AABEIAKYBLwMBIgACEQEDEQH/xAAcAAACAwEBAQEAAAAAAAAAAAAAAwECBAUGBwj/xAA/EAACAQIEAwYDBgMGBwEAAAABAgADEQQSITEFQVEGEyJhcYEHMpEUQlKhscEj0fAVYnKC4fEzNEN0s8LSJP/EABkBAAMBAQEAAAAAAAAAAAAAAAABAgMEBf/EACcRAAICAQQCAgICAwAAAAAAAAABAhEhAxIxQQRRE2FCsRShIiOB/9oADAMBAAIRAxEAPwDwrsmnh38ol8Pzy6RVWmy2J9oHEORvPVS9HnvJavSAGg13meXNVjKim3QxjRSEuaZ6H6GVtAZEJaVtAQQhCAFpWEIAEIQgMJdZSXXaOPImTylkNpAl3UCDJfoYlex2l2xOoIBsIkv5RlKuBuImg4wjQMYvnJGLTqfpK/ak6flIarTP+0ivou37LtWRhvIpVwRqRMhKwAWPaiN2bK1z4jFzS1NNNfWXGHUm15VgjJCbTgx1MpWwuUE32huQ6ZlkyjOBEPUJickhqLZoLgbmVNcTNIkb2VsRp+0DzjFqA7TFCG5jcEdICNUTBQxFjrqP0nQErdZCjQQhJERQiur/AHh+kp3bfh23mzEVVNrNzEu1QWOvKUmycHMzTTRxmUWImRt5MG75A11MbcWyyyYpbC42mKEVAdBsWnT8pV6yEbTDCFAyG30kwhGAQhCAwhCQIATJXaRLLtKjyJgRLBYARzG2gECLFZZGWb8HhKlQ2VSepOij1Ji8Th2ptZ1IPLofMHYwrFi3Ruk8+jJlkWjw6wrOpGkVjTYi0LSbwvHgZFoWk3heLABcwLHzk3krrDAGJ99ZWbMXR+8B6zLaYnRRWEtaQdIAVMJYysACbsDUuCvTb0mGOwrWYeekFyJrB0pMiSJZmIr0VBFjvvM2J8LWB5CMSlc2vM1YWYjpHK0gjllwjdN5BLDcH6ToYbxWvyUDSKrKVbc25XtHt6HZj7zylg4my+a5AG97EfvMjL5Q2sLTJzDrASVRedx6RTIORhTCkNtC0VY9ZOYwChkJRG6y8ViaoIQhAQSy7SsssqIMbRos5CopYnYAXM9LwzgGXxVTr+EcvVv2H1nYwWESmoCqBcC55n1POMr10QXdgB+voOc6I6aWZHj63mzm9umq/ZdECiwAAGwGgi8QqMMrgEdP62nHxfFmbRPCOv3j/KVw3Ejs+v8AeG/uOc5vJ8iUY1pKxQ8HWre+fXZlx/AiSWpnT8J3Hoec4legUNjPbo4YXU3HlMfF8Mj02Yr4lUlTzBAnmaPmT3bZ5/Z1aWvJPbI8igmuhRU7zIs34aek+DtXKLHCp0lGwi+c0mQ0i2aOKOcaMQxX8yLG499JsYamICksLDYvry12/SVJ4I002yqYlQLG/wBJndhynUy2FphrrMzcyGVvNHd+G99Ry6zOYARCEIAEshsQehErACMDsXkiVUSwlmRk7wW85jMdEtE22OKo200v9LxbjXe80YM+L2isRTyt1B1E2vNEpD8JmsbRiPfdRz0tEUKhG3vNAdh7mTJZBsrVRbXIt/hmOoF+7cjzm5sSBuN5mr1g2gAt6axqwM5EugFjKyV2MoGLUamXlBuZeYjYQhIEAJlh/OVlht7RoTPogq6C3QfpPKdoGPf7n5V/eelp7D0E8zx42rn/AAr+84NDydTV1v8AJ4zjo8vxYpajr0Y6YYkeI2JA/Oeh/sVPxv8AUf8AzPN0T4gb6XB/Oeq/tJP730l+W9RNfHf/AA6tZ6mNgtOFAbVKg9CB/wCsXjeHWRiKjkhWIBYWOmx02mpMcjaLe46i0z42oSjHorW6bTn0dPyJy7xzZzKeoppSPNDCv5RqB1+7KjEt0En7S3QT08npWizYthuv5yPtv9384ioWY7ShpsORjpBuY0Vgb3v7R2FXVuY0y/neZChHIzZhG02kyXZcH0FeZGm6vMFWQalmTOth93fzmSuovpH0wdQDvvF1VA5QAzQljKwEEbhxdhFR2E+b2MaB8HRBlxFiXEsyRzrxL7xkW28luykqOjgx4v8ALE1UAOhv7Wt5RuENmv0EXXKlrqd95t+RPRCGxmsVFblt5zIpsbx3fobXTX8o5IFwPdARqpPoZhZDfQHymxjT/wBrxZyX8DW9YkwMpB6SVOkfVZgvzAg/WZ5SEU5mTI5mQz2mLZVWWlorvJIqCKw2sZLDaKziXDi28pMlpnvMLXV1BVgRYXty8iOUjEYZagsyg9DzHoZ4mhiihurFT1H79Z6DA9oFItUAB/EPlPqOU8ufiTjK9N2efPxpwe6Gf2ZsdwZ0uyG46feHtz9pODwLnV2yjp94+vSddqubW9wdrbSjMBqTaex4+jKMP9rTZK151t7/ALBECiwETjXsjDmVIUdTM2LxrbIv+Y/sJzKmIqA+IazSWqkqiaaehJvdLAvun6SCj/hjBimt8sgYtvwzmO2oixVKnURpxn92Iq1Cx2lCp6GAljg0vigRa0vh2uPeYsp6GXRyNucTWCounbNNeqJmCljKgazThzfSQ0zVSTLJTsJz8QdZ1WGk5lZNYijPKGOanFkRiLJRJF5VWsbjlNuHII9N5haMlOzo0aob15iOE5KOQbidGjUzC8aYmqMcU28ZFtvAo6OEHiJ3sNovEAZtAR1HnLYZiCSOQla1bOR4bHrNuzPoEvt7SWoEcx76SiHWa35Am+9tTG3QjMaDeX1le6bpGVEUdfKxvO72R7KYjiDEIclNCBUqtcqD+FR997a20sNyLi6clFW2NK3SPNshG4MJ91w/w14dTX+NnqW3apVZB7BCoEpi/hjw6qn8ENTPJ6dVnHuHLA/lMP5UPs1+JnwldzF1N53+1XZqpw+v3VRlcMuam66ZlvbxJe6m/L6EzgNvHaeUTVMutIkX6RdpZW849EsLnW8rbaBuhGSVyzRVYchMxaJpIItsmQYynbnPW/DSmr8Sw6lQyn7RdWAYG1FyNDJeItjXNHmMHxB6fytpzU6r9P5Qr4+o5uWPkBoB6CfVPjVgkRMLkRFJevfKqrcZU3sJ8nKcucITlOOOAlCKldKywxjj7xg2LY7mLamRylI8ipMeMW0ExRHKZxOlwDhRxeIpYcPkNVsucjNl8Ja+W4vt1ETk0g2ReKEDGHpH/wBpD8M9H217Atw2klU4gVQ75Mopmnbws1752v8ALa3nPFkQjPcrQOCjg7AxYI23kjFLa1pgQeH2mXOesp4JSs6NZwTpJpA/MOW55TNg6JdtzYbn9p0aqj5R8qxXY9tFHxQ6H9JmaoDylqgG50H9aCZneDSGmMd4lkhmMBeGBlNRKR5i3EVAUjaL2NusVAQGx0W28ZFnf3jEdDCkBrnkIupVLGxNxfSPwY1PpE1aWU73m35GfQudWmDkFrXyi15y13HrNNUjk7ag6f7QkrEnQrE0mUFiBbfSforA4enw3AWt4cPRZ6ltC7KpZz6s1/rPzhUZiCLnY2n6U4pTGNwFRaZH/wCjDt3Z5fxEuv6ic3k/inwb6PZ+euOcZrYyoatdyxJJVb+BByVF2UD6nncynB+L1sG4qUKhRgRcA+B/J12YevtMlamyMUZSrKSrqRYqw0II6z2fwjpq3ELMoYdxWNiARfMnI+pm86jB4wRG3I8Zj+IviKjVqrl3Y3ZifoByAHIDQT6r2J+HlBKAxePAYsveCm5y06aWuGqfia2pB0HTnMPxhoUlxeEuqqhU95YBQU7xc17eRM+ndqMBTxGFq0qtU0qbKDVqKVXKisGbVgQBYWN+RnFOdpVizeMcs8jT7ScBqsKHd0MpOVS2HC077CzFRlHmbDznmviN2DTCp9qwtxTBArUySwTMbK6k65bkAg7XHKOFDs3h/md8Sw86rg+6BUM0cf8AiTh6+HqYajh3y1EampqFVCgjKCFGa9tCBcbS4qSknFOu7FJxrJw/h52MGPzVKxYUEbKbaNUewJUNyUAi5HWw8vcY3i/A+HscOaVIMthUCUO8K+TvlNz1FyZ0/hiirw6iFtvWzf4u9e/9ek8fj+C8DoVKhxWKetULuai5mYh7kspFBbg3ve53kyluk07pdIIpJJrs6fHOw2Cx+H+0cPyI5UmkaelKpbdGTZDe4uACDvfaeH+GOHK8UoA6FftIYHcEUagII9Z67B/EbhuDTucHh6uS7MBoiljubsxa5sOU832FxQrcaSsFCiq+MfKDfLnp1WIDWF9T0EcdyhJPisCk1uVHpPjfTZlwaqpZmqVwqqCWYkIAABuTNPYz4e0MNSavj1pu5UlkqZWpUVGpvm8LN1bYbDmT77iC0FtXrZF7gMVqPYCmGsGIY6LewF55v4lcGr4zBlaDm6HO1NTpWUD5b8yPmA2JHoRlGbpR4+zRxzZ8q7TY+hjsVTw+Bw9GjTNRaaOlNEaozkLnYqAQgvovudbAfSB2e4VwnDrUxCK5uqmrVp967OQTZFscvyk2A0A1nxDh+MehVp1l+ek6OoO2ZGBsR7WM+24bt5wrHUgmKypexaliEzKCOYexX0NwfITTUUlSV0RFp3fIhe0XAMWcjpRU2NjUod3p5VMvh+onzzsY9M8YoGipWka9TulJJITI+S5Ot7W3n0ep8P8AhGMUthmA5ZqFXOoPK6ksvtpPB9nuDvg+NUMO5BKVdGAsGVqTMrAcrg7cjcQi400r47B3aPsnahcEaa/bu77vP/D735c+VtvPLm/OfDe0nDqOI4j3HDghSoaS0gh8GbIC5vyAsxPoZ9G+Nn/K0P8AuR/4qs8V8IQv9pC9r9zXyX/F4dvPLm/OLTVQcwk7dHvKPZnhnCaC1MUEqNoGqVUzl33tTpagbHYE2Gp5wwdbgvFS1JKVMuFJA7s0auUblWABNugJ8xNvb7hGCrmi+NxLUUp94EUOqBy2UtupJNlHy6zzHCuJ8BwjiphqdSpUS+VwKpIJBU2NUqBcEjQc5CuSvLZWF6o852r7Onhz92CWpsC1Fza5F7FTbmtxf1B52H0rs92XwlbAUc2Ho56mHTNUNJDUzumr5iL5rm97zwfbftamPyKtEotFi2ZmBY3W2XKBYcjvPqHZuqV4bQcbrhabD1FO4l6jkoq8MiKW5nmO0OC4Vg8JXoKcOMR9mxCpnZHxBc02y6m7Bi1rAW1tafEgsuzsxLsSzuSzsdSWbUknqSZQmawht5dik74RMC0rvJyyyQzwJk2gRGIURIlmWViGOi+fvGRfOMR0sGdW9BF4hvENSdOcZgfmPoIvELZ9Wv8At5Tb8jPoWg1js3IWU+sWgvpr7S9WiFF9fLa35SnyKiWqsp3B+hnu+wPxAGFH2fE3NG5NN1BJp3NypUalL3OmoJ5jb52JMmenGaqRUZOLtH6DxWC4TxH+I32eqSBd1cK9uQYqwb2MpgsVwjAOKdJ8PTeoQpysGfmf4j3JVdPvECfn5lB5SLTn/jdbnRr8v0fQvjLjqVavhzSqJUApVAxR1cAlxocpNp3Ow3xFoPSXDY5gjquQVH/4dRLWAcnRWtob6H3tPjg3MjnIekq2voe93Z98PY7gz/xAKeQnN4cQwp+wD2A8hpPEfEupw1u7GDy95TGRjRAFHuwDZSRozg7Ecr3O08HQoKwJI1HOVqUiOpEqOm07bbIlNPCVHufh124XAlqNcsaDtmzAFmptYAnLzUgC4GoIvrcz6DjeDcH4i3flqTsbZnp1ijHl4wrDXS2ovPz/ADTh8GrC5YXHWKWlb3J0ylOlTyfWe1lDguGwj4dFpmodaa0WFSuKgByszkkgDW+Y2tcWni/hviFp8QoNUZVVe/zMxCqL0XAux0FyQJ5RSFOnLpOktInW++uwlRhUXG3kmU22qR9D+M3FqdWlh0o10dS9Vqi03Vhoq5SwU8rta8n4XduVVBg8U4UID9mquwAyj/pux2t909NOQv8AMqqjY/W0RURRs1/aT8S20xrVbdn0bt5wTA/aaeKTEUu4qVF+3JTdXZbm7VFRCWIbUG2oJvzM9M/ZfgeM8VJ6aEjXuKwS3rTJsD/lnw/IOogaYPSJwdLLK3r0fe+GUuFcGV2WuoZwufNUFSo4S+UKi/4jsOc+V8Q7XNU4mvEAhAR6ZRDa/dqMuUnbMVLHyLeU8yKfS0nuzHHSStt2Jzvg/RFbFcN4tQCtUSol1fKXyVEYA2uAQymxI958r7XDD8Nx1Grw6ohyKrMiuagV1JVldrnR1NiL3320niWp9QJUiEdOuHj0Nzvo+/YLtPwzitAU65RS1s1GswVlba9N7i+5sym+vLaXw3Zvg+DPefwltqO8rFwD5K7EE+xM+F8PpZtTsP1mzFuFFhJ+GuG0g3+0b+1+Kw5xD/YwwpubgEWGY/MUG4ToDtrsLCfWuz3GcMnDKKtiKKsuFRWU1EDBhTsQVve9+U+E0l3MVXe5sJUoKSSbFGVMTm0HoJIEAIXliGBdJQmWsSPKQFgBXNJ1kgQMYiIsiMvIMAJlBuPWXlRuPWCA6WCsCxJtMrtdieplG3gu86KzZn0NpJc2EflIuCU06zMojnS4Auntv7wYE355UPpFO4Oy2laiZTa4PobyIJCRBkQhGMVzMgbyeZkDec/Zp0aaBsp9ZRsQduXpLUtUI84nuz0Mpt0QkrdlRHLz9Iki0cv7RRGxYM0ENYEX/KZ7RqVmUaER9A0WLVPOLZGPIyDVbqZXOepk2wSJKHofpIKyTUPUyC5POMeSJMiAgBMgKToNztCb+H0PvH29OsANeHQInp+c5+JqZmv9I/GV7+ETGQSbDnJY0NLkjKvuYpwBoPcxzAKLD3PWZWaDBEEx2Go5j+sUominUsLAb84IGWxT62GwiSBbzj6OHLmGIUKbCAvoywtLEyCYDK2haF4XgBMou49ZYyF3EFyDHPvJpWvrf2kPvBdx7ToM+joHBD8R/KUGFYHZSPOai3+kneZ7mVSMDYR99PrtEKbHUXtuP9Z0nysLXGvnObUUAkA3tKi2+SWiajKdlt73kFl6aykJYCzuZVd5PMyhnM3k0OjQqKEG19ZlqEg7/QxEIbhbcl2a+8gNKwhY6HqNN4xXAFiAfOZJMNzCkPKyCkTeF4bmFIbb+rSLReYwvDcwoZ9JNvSKvJQEm0e4KH0qeY/19J0HfItuZiKKBRf6fzmevVJMGyaKs1zG0vCLxIFpDOW0iKCo9zKnSW2kKIhjsNQzHXYbx9ew0USgxFhZR7mFOk7nb9oyTXSKoup1M59VixvNNakEG9zM2eAIXlMjLL3kEwGVtC0GaReAAZCbiEIR5Exrbx+CUZhfoYQm7JXBq7sFgPXkBt6S1TKovbnyhCR6A5rnUyIQmoghCEAFczCEJzPk0CTCEQBJtCEAJCiLcawhACslYQgMaaQlVQQhARfuhNVOmFW/OEJSJZnq1iZW1vWEIiijG+kkQhEMJpWiALnWEI0SwTU2Gk35sgtCEoTOfWqXMVaRCSUGWBEIQAi0i0IQA//Z" class="card-img-top" alt="...">
+          <div class="card-body">
+            <h5 class="card-title">Sql workshop</h5>
+            <p class="card-text">
+              During the SQL workshop, I acquired a profound understanding of the fundamental concepts of Structured Query Language. This immersive experience not only deepened my knowledge of database management but also provided me with practical insights into working with relational databases. The workshop afforded me the opportunity to apply SQL queries in real-life scenarios, enhancing my skills in data retrieval, manipulation, and database optimization.</p>
+            <p class="card-text"><small class="text-muted">Last updated 3 mins ago</small></p>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+  <section id="education">
+    <div class="container mt-5 mb-5">
+      <h2>Education</h2>
+      <div class="row justify-content-center align-items-center g-2">
+        <div class="col">
+          <div class="card" style="width: 18rem">
             <div class="card-body">
-              <h5 class="card-title">Card title</h5>
-              <p class="card-text">
-                This is a wider card with supporting text below as a natural
-                lead-in to additional content. This content is a little bit
-                longer.
-              </p>
-            </div>
-            <div class="card-footer">
-              <small class="text-muted">Last updated 3 mins ago</small>
-            </div>
-          </div>
-          <div class="card">
-            <img
-              src="https://assets-global.website-files.com/624af442a8151d5a2ef5644c/6411992ee2c5cc606f0d56fb_hero%20image.webp"
-              class="card-img-top"
-              alt="https://assets-global.website-files.com/624af442a8151d5a2ef5644c/6411992ee2c5cc606f0d56fb_hero%20image.webp" />
-            <div class="card-body">
-              <h5 class="card-title">Card title</h5>
-              <p class="card-text">
-                This card has supporting text below as a natural lead-in to
-                additional content.
-              </p>
-            </div>
-            <div class="card-footer">
-              <small class="text-muted">Last updated 3 mins ago</small>
-            </div>
-          </div>
-          <div class="card">
-            <img
-              src="https://assets-global.website-files.com/624af442a8151d5a2ef5644c/6411992ee2c5cc606f0d56fb_hero%20image.webp"
-              class="card-img-top"
-              alt="https://assets-global.website-files.com/624af442a8151d5a2ef5644c/6411992ee2c5cc606f0d56fb_hero%20image.webp" />
-            <div class="card-body">
-              <h5 class="card-title">Card title</h5>
-              <p class="card-text">
-                This is a wider card with supporting text below as a natural
-                lead-in to additional content. This card has even longer content
-                than the first to show that equal height action.
-              </p>
-            </div>
-            <div class="card-footer">
-              <small class="text-muted">Last updated 3 mins ago</small>
-            </div>
-          </div>
-        </div>
-      </div>
-    </section>
-    <section id="Progress" class="pb-4">
-      <div class="container mt-5">
-        <h2>Progress</h2>
-        <div class="row justify-content-center align-items-center g-2">
-          <div class="col p-2">
-            <h1>HTML</h1>
-            <div class="progress">
-              <div
-                class="progress-bar"
-                role="progressbar"
-                style="width: 95%"
-                aria-valuenow="25"
-                aria-valuemin="0"
-                aria-valuemax="100">
-                95%
-              </div>
-            </div>
-          </div>
-          <div class="col p-2">
-            <h1>CSS</h1>
-            <div class="progress">
-              <div
-                class="progress-bar"
-                role="progressbar"
-                style="width: 75%"
-                aria-valuenow="75"
-                aria-valuemin="0"
-                aria-valuemax="100">
-                75%
-              </div>
-            </div>
-          </div>
-        </div>
-        <div class="row justify-content-center align-items-center g-2">
-          <div class="col p-2">
-            <h1>JavaScript</h1>
-            <div class="progress">
-              <div
-                class="progress-bar"
-                role="progressbar"
-                style="width: 55%"
-                aria-valuenow="55"
-                aria-valuemin="0"
-                aria-valuemax="100">
-                55%
-              </div>
-            </div>
-          </div>
-          <div class="col p-2">
-            <h1>Node Js</h1>
-            <div class="progress">
-              <div
-                class="progress-bar"
-                role="progressbar"
-                style="width: 25%"
-                aria-valuenow="25"
-                aria-valuemin="0"
-                aria-valuemax="100">
-                25%
-              </div>
-            </div>
-          </div>
-        </div>
-        <div class="row justify-content-center align-items-center g-2">
-          <div class="col p-2">
-            <h1>Python</h1>
-            <div class="progress">
-              <div
-                class="progress-bar"
-                role="progressbar"
-                style="width: 55%"
-                aria-valuenow="55"
-                aria-valuemin="0"
-                aria-valuemax="100">
-                55%
-              </div>
-            </div>
-          </div>
-          <div class="col p-2">
-            <h1>React Js</h1>
-            <div class="progress">
-              <div
-                class="progress-bar"
-                role="progressbar"
-                style="width: 25%"
-                aria-valuenow="25"
-                aria-valuemin="0"
-                aria-valuemax="100">
-                25%
-              </div>
-            </div>
-          </div>
-        </div>
-      </div>
-    </section>
-    <!-- Footer -->
-    <footer class="text-center bg-dark" style="color: white">
-      <!-- Section: Social media -->
-      <section
-        class="d-flex justify-content-center justify-content-lg-between p-4 border-bottom">
-        <!-- Left -->
-        <div class="me-5 d-none d-lg-block">
-          <span>Get connected with us on social networks:</span>
-        </div>
-        <!-- Left -->
-
-        <!-- Right -->
-        <div>
-          <a href="" class="me-4 text-reset">
-            <i class="fab fa-facebook-f"></i>
-          </a>
-          <a href="" class="me-4 text-reset">
-            <i class="fab fa-twitter"></i>
-          </a>
-          <a href="" class="me-4 text-reset">
-            <i class="fab fa-google"></i>
-          </a>
-          <a href="" class="me-4 text-reset">
-            <i class="fab fa-instagram"></i>
-          </a>
-          <a href="" class="me-4 text-reset">
-            <i class="fab fa-linkedin"></i>
-          </a>
-          <a href="" class="me-4 text-reset">
-            <i class="fab fa-github"></i>
-          </a>
-        </div>
-        <!-- Right -->
-      </section>
-      <!-- Section: Social media -->
-
-      <!-- Section: Links  -->
-      <section class="Footer">
-        <div class="container text-center text-md-start mt-5">
-          <!-- Grid row -->
-          <div class="row mt-3">
-            <!-- Grid column -->
-            <div class="col-md-3 col-lg-4 col-xl-3 mx-auto mb-4">
-              <!-- Content -->
-              <h6 class="text-uppercase fw-bold mb-4">
-                <i class="fas fa-gem me-3"></i>Company name
+              <h5 class="card-title">Bachalor Digree</h5>
+              <h6 class="card-subtitle mb-2">
+                Jan 2019-may 2022 | University
               </h6>
-              <p>
-                Here you can use rows and columns to organize your footer
-                content. Lorem ipsum dolor sit amet, consectetur adipisicing
-                elit.
+              <p class="card-text">
+                Some quick example text to build on the card title and make up
+                the bulk of the card's content.
               </p>
             </div>
-            <!-- Grid column -->
-
-            <!-- Grid column -->
-            <div class="col-md-2 col-lg-2 col-xl-2 mx-auto mb-4">
-              <!-- Links -->
-              <h6 class="text-uppercase fw-bold mb-4">Products</h6>
-              <p>
-                <a href="#!" class="text-reset">Angular</a>
-              </p>
-              <p>
-                <a href="#!" class="text-reset">React</a>
-              </p>
-              <p>
-                <a href="#!" class="text-reset">Vue</a>
-              </p>
-              <p>
-                <a href="#!" class="text-reset">Laravel</a>
-              </p>
-            </div>
-            <!-- Grid column -->
-
-            <!-- Grid column -->
-            <div class="col-md-3 col-lg-2 col-xl-2 mx-auto mb-4">
-              <!-- Links -->
-              <h6 class="text-uppercase fw-bold mb-4">Useful links</h6>
-              <p>
-                <a href="#!" class="text-reset">Pricing</a>
-              </p>
-              <p>
-                <a href="#!" class="text-reset">Settings</a>
-              </p>
-              <p>
-                <a href="#!" class="text-reset">Orders</a>
-              </p>
-              <p>
-                <a href="#!" class="text-reset">Help</a>
-              </p>
-            </div>
-            <!-- Grid column -->
-
-            <!-- Grid column -->
-            <div class="col-md-4 col-lg-3 col-xl-3 mx-auto mb-md-0 mb-4">
-              <!-- Links -->
-              <h6 class="text-uppercase fw-bold mb-4">Contact</h6>
-              <p><i class="fas fa-home me-3"></i> New York, NY 10012, US</p>
-              <p>
-                <i class="fas fa-envelope me-3"></i>
-                info@example.com
-              </p>
-              <p><i class="fas fa-phone me-3"></i> + 01 234 567 88</p>
-              <p><i class="fas fa-print me-3"></i> + 01 234 567 89</p>
-            </div>
-            <!-- Grid column -->
           </div>
-          <!-- Grid row -->
         </div>
-      </section>
-      <!-- Section: Links  -->
-
-      <!-- Copyright -->
-      <div
-        class="text-center p-4"
-        style="background-color: rgba(0, 0, 0, 0.05)">
-        © 2021 Copyright:
-        <a class="text-reset fw-bold" href="https://mdbootstrap.com/"
-          >MDBootstrap.com</a
-        >
+        <div class="col">
+          <div class="card" style="width: 18rem">
+            <div class="card-body">
+              <h5 class="card-title">Card title</h5>
+              <h6 class="card-subtitle mb-2">Card subtitle</h6>
+              <p class="card-text">
+                Some quick example text to build on the card title and make up
+                the bulk of the card's content.
+              </p>
+            </div>
+          </div>
+        </div>
+        <div class="col">
+          <div class="card" style="width: 18rem">
+            <div class="card-body">
+              <h5 class="card-title">Card title</h5>
+              <h6 class="card-subtitle mb-2">Card subtitle</h6>
+              <p class="card-text">
+                Some quick example text to build on the card title and make up
+                the bulk of the card's content.
+              </p>
+            </div>
+          </div>
+        </div>
       </div>
-      <!-- Copyright -->
-    </footer>
-    <!-- Footer -->
+    </div>
+  </section>
+  
+  <section id="Experience" class="pb-4">
+    <div class="container mt-5">
+      <h2>Experience</h2>
+      <div class="row justify-content-center align-items-center g-2">
+        <div class="col">
+          <div class="card mb-3" style="max-width: 540px;">
+            <div class="row g-0">
+              <div class="col-md-4">
+                <img
+                  src="https://media.licdn.com/dms/image/C4D0BAQExP1F1c0WD4w/company-logo_200_200/0/1675191330164?e=2147483647&v=beta&t=ndS-WPUsBN5dHYyvvWjczfcGT2eMhuRnbSy_pHWBnh4"
+                  class="img-fluid rounded-start" alt="...">
+              </div>
+              <div class="col-md-8">
+                <div class="card-body">
+                  <h5 class="card-title">Sync Web development InterShip</h5>
+                  <p class="card-text">Created A 4 Projects Using HTML, CSS And JavaScript :
+                  <ol>
+                    <li>landing Page</li>
+                    <li>Quiz App</li>
+                    <li>Web Music Player</li>
+                    <li>E-Learing Static Website</li>
+                  </ol>
+                  </p>
 
-    <!-- Add more sections as needed -->
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+        <div class="col">
+          <div class="card mb-3" style="max-width: 540px;">
+            <div class="row g-0">
+              <div class="col-md-4">
+                <img
+                  src="https://media.licdn.com/dms/image/C4D0BAQExP1F1c0WD4w/company-logo_200_200/0/1675191330164?e=2147483647&v=beta&t=ndS-WPUsBN5dHYyvvWjczfcGT2eMhuRnbSy_pHWBnh4"
+                  class="img-fluid rounded-start" alt="...">
+              </div>
+              <div class="col-md-8">
+                <div class="card-body">
+                  <h5 class="card-title">Sync React Js Development InterShip</h5>
+                  <p class="card-text">Created A 4 Projects Using React Js And Open Source API's :
+                  <ol>
+                    <li>Resume Builder</li>
+                    <li>Chating App</li>
+                    <li>Coding Platform</li>
+                    <li>Weather Forsting Website</li>
+                  </ol>
+                  </p>
 
-    <!-- Bootstrap JS and Popper.js (required for Bootstrap JavaScript components) -->
-    <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
-    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.1.0/dist/js/bootstrap.bundle.min.js"></script>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+        
+        <div class="row justify-content-center align-items-center g-2">
+          <div class="col">
+            <div class="card mb-3" style="max-width: 540px;">
+              <div class="row g-0">
+                <div class="col-md-4">
+                  <img
+                    src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcReCwEHSP8WSWhfhpww8fqs1mKIJ4fR8lbZIb7194akMLcTvkHPthPqBkqS1AzzKlCGSaM&usqp=CAU"
+                    class="img-fluid rounded-start" alt="...">
+                </div>
+                <div class="col-md-8">
+                  <div class="card-body">
+                    <h5 class="card-title">Suvidha Foundation machine-learning Inter</h5>
+                    <p class="card-text">Role : Collecting Data For Creating A NLP Project And Creating Our Own Business
+                      Bot Step To Be Done :
+                    <ol>
+                      <li>Data Collection and Reading of Paper
+                      </li>
+                      <li>Social Task and Fundraising</li>
+                      <li>Data collection and Deployment of Model given in research paper.
+                      </li>
+                      <li>Data collection and writing of report on the given project.</li>
+                    </ol>
+                    </p>
+  
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+        <div class="row justify-content-center align-items-center g-2">
+          
+        </div>
+      </div>
 
-    <script>
+
+    </div>
+  </section>
+  <section id="Certificate">
+    <div class="container mt-5 mb-5">
+      <h2>Certificate's</h2>
+      <div class="row">
+        <div class="col-sm-6 mb-5">
+          <div class="card">
+            <div class="card-body">
+              <h5 class="card-title">Problem Solving (Basic) Certificate</h5>
+              <p class="card-text">It covers basic topics of Data Structures (such as Arrays, Strings) and Algorithms (such as Sorting and Searching).
+
+              </p>
+              <a href="#" class="btn" style="background-color: #00f298;">Go somewhere</a>
+            </div>
+          </div>
+        </div>
+        <div class="col-sm-6">
+          <div class="card">
+            <div class="card-body">
+              <h5 class="card-title">JavaScript (Basic) Certificate</h5>
+              <p class="card-text">It covers topics like, Functions, Currying, Hoisting, Scope, Inheritance, Events and Error Handling.</p>
+              <a href="#" class="btn" style="background-color: #00f298;">Go somewhere</a>
+            </div>
+          </div>
+        </div>
+        
+      </div>
+      <div class="row ">
+        <div class="col-sm-6 mb-5">
+          <div class="card">
+            <div class="card-body">
+              <h5 class="card-title">Python (Basic) Certificate</h5>
+              <p class="card-text">It covers topics like Scalar Types, Operators and Control Flow, Strings, Collections and Iteration, Modularity, Objects and Types and Classes.</p>
+              <a href="#" class="btn" style="background-color: #00f298;">Go somewhere</a>
+            </div>
+          </div>
+        </div>
+        
+        <div class="col-sm-6">
+          <div class="card">
+            <div class="card-body">
+              <h5 class="card-title">Java (Basic) Certificate</h5>
+              <p class="card-text">It will cover basic topics in Java language such as classes, data structures, inheritance, exception handling, etc. You are expected to be proficient in either Java 7 or Java 8.</p>
+              <a href="#" class="btn" style="background-color: #00f298;">Go somewhere</a>
+            </div>
+          </div>
+        </div>
+        
+      </div>
+
+    
+    </div>
+  </section>
+  <section id="Progress" class="pb-4">
+    <div class="container mt-5">
+      <h2>Progress</h2>
+      <div class="row justify-content-center align-items-center g-2">
+        <div class="col p-2">
+          <h1>HTML</h1>
+          <div class="progress">
+            <div class="progress-bar" role="progressbar" style="width: 95%" aria-valuenow="25" aria-valuemin="0"
+              aria-valuemax="100">
+              95%
+            </div>
+          </div>
+        </div>
+        <div class="col p-2">
+          <h1>CSS</h1>
+          <div class="progress">
+            <div class="progress-bar" role="progressbar" style="width: 75%" aria-valuenow="75" aria-valuemin="0"
+              aria-valuemax="100">
+              75%
+            </div>
+          </div>
+        </div>
+      </div>
+      <div class="row justify-content-center align-items-center g-2">
+        <div class="col p-2">
+          <h1>JavaScript</h1>
+          <div class="progress">
+            <div class="progress-bar" role="progressbar" style="width: 55%" aria-valuenow="55" aria-valuemin="0"
+              aria-valuemax="100">
+              55%
+            </div>
+          </div>
+        </div>
+        <div class="col p-2">
+          <h1>Node Js</h1>
+          <div class="progress">
+            <div class="progress-bar" role="progressbar" style="width: 25%" aria-valuenow="25" aria-valuemin="0"
+              aria-valuemax="100">
+              25%
+            </div>
+          </div>
+        </div>
+      </div>
+      <div class="row justify-content-center align-items-center g-2">
+        <div class="col p-2">
+          <h1>Python</h1>
+          <div class="progress">
+            <div class="progress-bar" role="progressbar" style="width: 55%" aria-valuenow="55" aria-valuemin="0"
+              aria-valuemax="100">
+              55%
+            </div>
+          </div>
+        </div>
+        <div class="col p-2">
+          <h1>React Js</h1>
+          <div class="progress">
+            <div class="progress-bar" role="progressbar" style="width: 25%" aria-valuenow="25" aria-valuemin="0"
+              aria-valuemax="100">
+              25%
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+  <!-- Footer -->
+  <footer class="text-center bg-dark" style="color: white">
+    <!-- Section: Social media -->
+    <section style="background-color: #22252c"
+      class="d-flex justify-content-center justify-content-lg-between p-4 border-bottom">
+      <!-- Left -->
+      <div class="me-5 d-none d-lg-block">
+        <span>Get connected with us on social networks:</span>
+      </div>
+      <!-- Left -->
+
+      <!-- Right -->
+      <div>
+        <a href="" class="me-4 text-reset">
+          <i class="fab fa-facebook-f"></i>
+        </a>
+        <a href="" class="me-4 text-reset">
+          <i class="fab fa-twitter"></i>
+        </a>
+        <a href="" class="me-4 text-reset">
+          <i class="fab fa-google"></i>
+        </a>
+        <a href="" class="me-4 text-reset">
+          <i class="fab fa-instagram"></i>
+        </a>
+        <a href="" class="me-4 text-reset">
+          <i class="fab fa-linkedin"></i>
+        </a>
+        <a href="" class="me-4 text-reset">
+          <i class="fab fa-github"></i>
+        </a>
+      </div>
+      <!-- Right -->
+    </section>
+    <!-- Section: Social media -->
+
+    <!-- Section: Links  -->
+    <section class="Footer">
+      <div class="container text-center text-md-start mt-5">
+        <!-- Grid row -->
+        <div class="row mt-3">
+          <!-- Grid column -->
+          <div class="col-md-3 col-lg-4 col-xl-3 mx-auto mb-4">
+            <!-- Content -->
+            <h6 class="text-uppercase fw-bold mb-4">
+              <i class="fas fa-gem me-3"></i>Company name
+            </h6>
+            <p>
+              Here you can use rows and columns to organize your footer
+              content. Lorem ipsum dolor sit amet, consectetur adipisicing
+              elit.
+            </p>
+          </div>
+          <!-- Grid column -->
+
+          <!-- Grid column -->
+          <div class="col-md-2 col-lg-2 col-xl-2 mx-auto mb-4">
+            <!-- Links -->
+            <h6 class="text-uppercase fw-bold mb-4">Products</h6>
+            <p>
+              <a href="#!" class="text-reset">Angular</a>
+            </p>
+            <p>
+              <a href="#!" class="text-reset">React</a>
+            </p>
+            <p>
+              <a href="#!" class="text-reset">Vue</a>
+            </p>
+            <p>
+              <a href="#!" class="text-reset">Laravel</a>
+            </p>
+          </div>
+          <!-- Grid column -->
+
+          <!-- Grid column -->
+          <div class="col-md-3 col-lg-2 col-xl-2 mx-auto mb-4">
+            <!-- Links -->
+            <h6 class="text-uppercase fw-bold mb-4">Useful links</h6>
+            <p>
+              <a href="#!" class="text-reset">Pricing</a>
+            </p>
+            <p>
+              <a href="#!" class="text-reset">Settings</a>
+            </p>
+            <p>
+              <a href="#!" class="text-reset">Orders</a>
+            </p>
+            <p>
+              <a href="#!" class="text-reset">Help</a>
+            </p>
+          </div>
+          <!-- Grid column -->
+
+          <!-- Grid column -->
+          <div class="col-md-4 col-lg-3 col-xl-3 mx-auto mb-md-0 mb-4">
+            <!-- Links -->
+            <h6 class="text-uppercase fw-bold mb-4">Contact</h6>
+            <p><i class="fas fa-home me-3"></i> New York, NY 10012, US</p>
+            <p>
+              <i class="fas fa-envelope me-3"></i>
+              info@example.com
+            </p>
+            <p><i class="fas fa-phone me-3"></i> + 01 234 567 88</p>
+            <p><i class="fas fa-print me-3"></i> + 01 234 567 89</p>
+          </div>
+          <!-- Grid column -->
+        </div>
+        <!-- Grid row -->
+      </div>
+    </section>
+    <!-- Section: Links  -->
+
+    <!-- Copyright -->
+    <div class="text-center p-4" style="background-color: rgba(0, 0, 0, 0.05)">
+      © 2021 Copyright:
+      <a class="text-reset fw-bold" href="https://mdbootstrap.com/">MDBootstrap.com</a>
+    </div>
+    <!-- Copyright -->
+  </footer>
+  <!-- Footer -->
+
+  <!-- Add more sections as needed -->
+
+  <!-- Bootstrap JS and Popper.js (required for Bootstrap JavaScript components) -->
+  <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+  <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.1.0/dist/js/bootstrap.bundle.min.js"></script>
+
+  <script>
+    $(document).ready(function () {
+      $(".carousel").carousel();
+
       // Smooth scrolling with dynamic navbar adjustment
       document.querySelectorAll('a[href^="#"]').forEach((anchor) => {
         anchor.addEventListener("click", function (e) {
@@ -701,15 +1004,35 @@
           const targetSection = document.querySelector(
             this.getAttribute("href"),
           );
-          const navbarHeight = document.querySelector("nav").offsetHeight;
-          const targetPosition = targetSection.offsetTop - navbarHeight;
 
-          window.scrollTo({
-            top: targetPosition,
-            behavior: "smooth",
-          });
+          if (targetSection) {
+            const navbarHeight = document.querySelector("nav").offsetHeight;
+            const targetPosition =
+              targetSection.getBoundingClientRect().top +
+              window.scrollY -
+              navbarHeight;
+
+            window.scrollTo({
+              top: targetPosition,
+              behavior: "smooth",
+            });
+          }
         });
       });
-    </script>
-  </body>
+    });
+
+    function downloadResume() {
+            // Replace 'path/to/your/resume.pdf' with the actual path to your resume file
+            var resumePath = 'Resume.pdf';
+
+            var link = document.createElement('a');
+            link.href = resumePath;
+            link.download = 'YourResumeFileName.pdf'; // You can customize the downloaded file name
+            document.body.appendChild(link);
+            link.click();
+            document.body.removeChild(link);
+        }
+  </script>
+</body>
+
 </html>
